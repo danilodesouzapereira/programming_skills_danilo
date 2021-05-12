@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+int main()
+{
+	std::string value;
+	std::cout << "Please input a string value:";
+	std::cin >> value;
+
+	int counter = -1, pos = 0;
+	while (true)
+	{
+		try
+		{
+			std::string value_pos = value.substr(pos++, 1);
+			counter += 1;
+		}
+		catch (...)
+		{
+			break;
+		}
+	}
+	std::cout << "Length: " << counter << std::endl;
+	system("PAUSE");
+	return(0);
+}

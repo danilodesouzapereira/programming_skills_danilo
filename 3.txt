@@ -1,0 +1,48 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+
+std::string ConcatRemove(std::string s, std::string t, int k)
+{
+    
+    if(s.length() == 0 || s.length() > 100 || t.length() == 0 || t.length() > 100)
+        return("no");
+    
+	std::string s_pos;
+	int final_pos, len_remove, len_concat;
+
+	for (int i=0; i<s.length(); i++)
+	{
+		s_pos = s.substr(i, 1);
+		
+		if (s_pos == t.substr(i, 1))
+			final_pos = i;
+		else
+			break;
+	}
+	len_remove = s.length() - final_pos - 1;
+	len_concat = t.length() - final_pos - 1;
+	if (len_remove + len_concat <= k)
+		return("yes");
+	else
+		return("no");
+}
+
+int main()
+{
+
+	std::string s, t;
+	int k;
+	std::cout << "Input the starting string: " << std::endl;
+	std::cin >> s;
+	std::cout << "Input the desired string: " << std::endl;
+	std::cin >> t;
+	std::cout << "Input the number of operations: " << std::endl;
+	std::cin >> k;
+
+	std::string result = ConcatRemove(s,t,k);
+	std::cout << result;
+
+	system("PAUSE");
+	return(0);
+}

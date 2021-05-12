@@ -1,0 +1,7 @@
+with pets AS
+(SELECT cats.name from cats union select dogs.name FROM dogs),
+pets_matched AS
+(SELECT cats.name FROM cats INNER JOIN dogs ON cats.name = dogs.name)
+select * from pets
+except
+select * from pets_matched

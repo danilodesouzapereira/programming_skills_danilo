@@ -1,0 +1,5 @@
+SELECT Students.Name, Notes.Grade, Students.Value
+FROM Students
+INNER JOIN Notes
+ON  Students.Value > Notes.Min_Value AND Students.Value < Notes.Max_Value
+ORDER BY Notes.Grade DESC;
